@@ -19,6 +19,7 @@ export class KanbanComponent implements OnInit {
   todos: Task[] = [];
   inprogress: Task[] = [];
   dones: Task[] = [];
+  testings: Task[] = [];
 
   constructor(
     private kanbanService: KanbanService,
@@ -72,6 +73,7 @@ export class KanbanComponent implements OnInit {
     this.todos = kanban.tasks.filter(t=>t.status==='TODO');
     this.inprogress = kanban.tasks.filter(t=>t.status==='INPROGRESS');
     this.dones = kanban.tasks.filter(t=>t.status==='DONE');
+    this.testings = kanban.tasks.filter(t=>t.status==='TESTING');
   }
   
   private updateTaskStatusAfterDragDrop(event: CdkDragDrop<string[], string[]>) {
@@ -90,6 +92,8 @@ export class KanbanComponent implements OnInit {
       task.status = 'TODO'
     } else if (containerId === 'inpro'){
       task.status = 'INPROGRESS'
+    } else if (containerId === 'testing'){
+      task.status = 'TESTING'
     } else {
       task.status = 'DONE'
     }
@@ -105,5 +109,14 @@ export class KanbanComponent implements OnInit {
       kanbanId: this.kanban.id
     };
     this.dialog.open(TaskDialogComponent, dialogConfig)
+  }
+
+  deleteKanban(): void {
+    const kanbanId = this.route.snapshot.paramMap.get('id');
+    this.kanbanService.deleteKanban(kanbanId).subscribe(
+      response => {
+        
+      }
+    );
   }
 }

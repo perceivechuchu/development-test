@@ -41,6 +41,15 @@
 
         <comment>Add status column to task table</comment>
     </changeSet>
+    
+    <changeSet id="4" author="pechuchu">
+        <sqlFile path="05_task_date.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+
+        <comment>Add date column to kanban table</comment>
+    </changeSet>
 
 </databaseChangeLog>
 

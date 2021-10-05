@@ -10,6 +10,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import za.co.bmw.kanban.service.KanbanService;
 import za.co.bmw.kanban.service.KanbanServiceImpl;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -54,6 +55,7 @@ public class KanbanServiceTest {
                     kanban.setId(Long.valueOf(number));
                     kanban.setTitle("Kanban " + number);
                     kanban.setTasks(new ArrayList<>());
+                    kanban.setCreatedDate(LocalDate.now());
                     kanbans.add(kanban);
                 });
         return kanbans;

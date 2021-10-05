@@ -31,6 +31,9 @@ public class SwaggerConfig {
                 "Kanban REST API",
                 "This is a REST API of Kanban REST API, where you can get/add/remove/modify Kanban board and its task.",
                 "v1",
+                "Terms of service",
+                new Contact("Perceive Chuchu", "www.pchuchu.com", "perceivechuchu@gmail.com"), 
+                "License of API", "API license URL", Collections.emptyList()
         );
     }
 }

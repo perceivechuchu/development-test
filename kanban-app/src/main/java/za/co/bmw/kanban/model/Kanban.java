@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -35,6 +37,9 @@ public class Kanban {
     @JoinColumn(name = "kanban_id")
     @ApiModelProperty(position = 3)
     private List<Task> tasks;
+    
+    @ApiModelProperty(position = 4)
+    private LocalDate createdDate;
 
     public void addTask(Task task) {
 
