@@ -12,7 +12,11 @@
 }
 
 .kanban-created-date {
-    font-weight: semi-bold;
+    position: relative;
+    font-size: 10px;
     color: white;
     font-family: 'Open Sans', sans-serif;
+    margin-right: 0px;
+    text-align: right;
+    padding-left: 2em;
 }
