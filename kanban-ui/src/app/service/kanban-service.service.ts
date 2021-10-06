@@ -43,11 +43,11 @@ export class KanbanService {
   }
 
   deleteKanban(kanbanId: String): Observable<string> {
-    let headers = new HttpHeaders({});
+    let headers = new HttpHeaders({'Accept': 'text/plain' });
     let options = { headers: headers };
     return this.http.delete<string>(
       this.kanbanAppUrl + '/kanbans/' + kanbanId,
-      options
+      {responseType: 'text' as 'json'}
     );
   }
 
