@@ -116,7 +116,6 @@ export class KanbanComponent implements OnInit {
     const kanbanId = this.route.snapshot.paramMap.get('id');
     this.kanbanService.deleteKanban(kanbanId).subscribe(
       response => {
-        console.log("successfully deleted.")
         this.getKanban();
         this.router.navigate(['/']);
       }

@@ -1,5 +1,12 @@
 package za.co.bmw.kanban.controller;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.TestPropertySource;
+
 import za.co.bmw.kanban.model.Kanban;
 import za.co.bmw.kanban.model.KanbanDTO;
 import za.co.bmw.kanban.model.Task;
@@ -7,11 +14,6 @@ import za.co.bmw.kanban.model.TaskDTO;
 import za.co.bmw.kanban.model.TaskStatus;
 import za.co.bmw.kanban.repository.KanbanRepository;
 import za.co.bmw.kanban.repository.TaskRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.TestPropertySource;
-
-import java.util.ArrayList;
-import java.util.Optional;
 
 @TestPropertySource( properties = {
         "spring.datasource.url=jdbc:h2:mem:test",
@@ -30,6 +32,7 @@ public class CommonITCase {
         int random = (int)(Math.random() * 100 + 1);
         kanban.setTitle("Test Kanban " + random);
         kanban.setTasks(new ArrayList<>());
+        kanban.setCreatedDate(LocalDate.now());
         return kanban;
     }
 

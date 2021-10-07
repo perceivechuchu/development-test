@@ -46,5 +46,6 @@ public class KanbanServiceITCase {
 
         assertNotNull(kanbans.get(0));
         assertEquals("Test Kanban", kanbans.get(0).getTitle());
+        assertNotNull(kanbans.get(0).getCreatedDate());
     }
 }
